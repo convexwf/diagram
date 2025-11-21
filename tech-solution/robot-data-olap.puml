@@ -1,0 +1,45 @@
+@startuml
+title 在线分析流程
+
+actor User as "用户"
+participant Frontend as "平台前端"
+participant FastAPI as "平台后端"
+participant NAS as "NAS 公共数据存储"
+participant JupyterHub as "JupyterHub"
+participant UserNotebook as "用户工作区 Notebook"
+
+== 用户点击分析按钮 ==
+User -> Frontend : 点击 `在线分析`
+Frontend -> FastAPI : POST /notebook/init\n{"template_name": "...", "data_file": "..."}\n(附带 Cookie, 可为空)
+
+== FastAPI 初始化模板 ==
+    FastAPI -> JupyterHub : 验证 Cookie, 获取用户名
+    FastAPI -> NAS : 读取目标数据文件路径
+    FastAPI -> NAS : 读取模板 Notebook (.ipynb)
+    FastAPI -> UserNotebook : 复制模板到用户工作区并替换占位符
+alt 用户已登录 (Cookie 有效)
+    FastAPI -> Frontend : 返回 Notebook URL
+else 用户未登录 (Cookie 无效)
+    FastAPI -> Frontend : 返回 `{JUPYTERHUB_ADDR}/hub/login?next=...`
+end
+
+== 用户跳转 Notebook ==
+User -> JupyterHub : 请求 Notebook URL (浏览器携带 Cookie)
+
+alt 用户已登录
+    JupyterHub -> UserNotebook : 验证用户 → 返回用户独立 Notebook
+else 用户未登录
+    JupyterHub -> User : 重定向到 /hub/login
+    User -> JupyterHub : 登录
+    JupyterHub -> User : 返回 Session Cookie
+    User -> JupyterHub : 自动跳回原 Notebook URL
+    JupyterHub -> UserNotebook : 验证用户 → 返回用户独立 Notebook
+end
+
+== Notebook 读取数据和分析 ==
+UserNotebook -> NAS : 读取数据文件，只读
+UserNotebook -> UserNotebook : 渲染可视化 / 分析数据
+User -> UserNotebook : 修改 Notebook / 保存结果
+UserNotebook -> UserNotebook : 保存到用户工作区\n(/home/user/work)
+
+@enduml
