@@ -11,7 +11,7 @@
           <mxGeometry height="190" width="285" x="5" y="40" as="geometry" />
         </mxCell>
         <mxCell id="yDs4ajgykelI3zsu6rQp-10" parent="V6oZ10s7mR1wuD7-SIzV-1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="Datalake" vertex="1">
-          <mxGeometry height="120" width="140" x="590" y="590" as="geometry" />
+          <mxGeometry height="120" width="140" x="130" y="580" as="geometry" />
         </mxCell>
         <mxCell id="yDs4ajgykelI3zsu6rQp-11" parent="yDs4ajgykelI3zsu6rQp-10" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" value="Velocity" vertex="1">
           <mxGeometry height="30" width="140" y="30" as="geometry" />
@@ -21,6 +21,21 @@
         </mxCell>
         <mxCell id="yDs4ajgykelI3zsu6rQp-13" parent="yDs4ajgykelI3zsu6rQp-10" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" value="Item 3" vertex="1">
           <mxGeometry height="30" width="140" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="3v8MV1mr_ceBIob_PFqC-0" parent="V6oZ10s7mR1wuD7-SIzV-1" style="rounded=0;whiteSpace=wrap;html=1;" value="API Server" vertex="1">
+          <mxGeometry height="60" width="120" x="730" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="3v8MV1mr_ceBIob_PFqC-1" parent="V6oZ10s7mR1wuD7-SIzV-1" style="rounded=0;whiteSpace=wrap;html=1;" value="Celery Sechduler" vertex="1">
+          <mxGeometry height="60" width="120" x="880" y="370" as="geometry" />
+        </mxCell>
+        <mxCell id="3v8MV1mr_ceBIob_PFqC-3" parent="V6oZ10s7mR1wuD7-SIzV-1" style="shape=dataStorage;whiteSpace=wrap;html=1;fixedSize=1;" value="MySQL" vertex="1">
+          <mxGeometry height="80" width="100" x="500" y="370" as="geometry" />
+        </mxCell>
+        <mxCell id="3v8MV1mr_ceBIob_PFqC-4" parent="V6oZ10s7mR1wuD7-SIzV-1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" value="Actor" vertex="1">
+          <mxGeometry height="60" width="30" x="1130" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="3v8MV1mr_ceBIob_PFqC-5" parent="V6oZ10s7mR1wuD7-SIzV-1" style="swimlane;whiteSpace=wrap;html=1;" value="Frontend Page" vertex="1">
+          <mxGeometry height="200" width="200" x="770" y="540" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
